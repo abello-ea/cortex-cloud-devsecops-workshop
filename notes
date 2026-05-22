@@ -1,0 +1,7 @@
+checkov -d . : scans the whole directory
+checkov -f <filename> : scans a specific file
+checkov -f deployment_gce.tf --check CKV_GCP_39,CKV_GCP_3 : runs only the specified checks
+checkov -f deployment_gce.tf --skip-check CKV_GCP_39,CKV_GCP_3 : skips the specified checks
+checkov -d . --framework secrets --enable-secret-scan-all-files : scans all files for hardcoded secrets/keys
+checkov -d . --skip-framework dockerfile : skips dockerfile checks
+checkov -d . ; echo $? : prints exit code after scan (0 = passed, 1 = check/s failed, 2 = crashed)
